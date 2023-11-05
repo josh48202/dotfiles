@@ -60,7 +60,7 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Set background to dark-grey color
-osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/System/Library/Desktop Pictures/Solid Colors/Stone.png"'
+#      osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/System/Library/Desktop Pictures/Solid Colors/Stone.png"'
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -177,6 +177,15 @@ defaults write com.apple.dock showhidden -bool true
 
 # Enable the 'reduce transparency' option. Save GPU cycles.
 defaults write com.apple.universalaccess reduceTransparency -bool true
+
+# Set Dock position to right side of screen
+defaults write com.apple.dock "orientation" -string "right" && killall Dock
+
+# Set the Dock Autohide
+defaults write com.apple.dock "autohide" -bool "true" && killall Dock
+
+# Set the Dock magnification size
+defaults write com.apple.dock "largesize" -int "55" && killall Dock
 
 # Hot corners
 # Possible values:
